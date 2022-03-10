@@ -1,0 +1,32 @@
+body {
+  background-color: #012d56;
+}
+
+h1 {
+  color: #fcb228;
+}
+
+h2 {
+  color: #fcb228;
+}
+
+h3 {
+  color: #b3c7d9;
+}
+
+p {
+  color: #b3c7d9
+}
+
+      a:link {
+        color: #02ebfc;
+      }
+      a:visited {
+        color: #ffca66;
+      }
+      a:hover {
+        color: #00ff2e;
+      }
+      a:active {
+        color: #00ff2e;
+      }

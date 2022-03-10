@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+   <head>
+       <meta charset="utf-8">
+       <link rel='stylesheet' href='style.css'></link>
+       <link href="https://fonts.googleapis.com/css2?family=Open+Sans&family=Righteous&display=swap" rel="stylesheet">
+       <title>TETRIS</title>
+  </head> 
+  <body>
+
+    <div id = 'main'>
+        <h1>TETRIS</h1>
+        <button class="btn" id="start">PLAY</button>
+        <h3 id="scoreLine">Score: <span id="score">0</span></h3>
+        <h3 id="gameOver"></h3>
+        <p id='outcome'></p>
+        <div id="gameSpace">
+            <div id="extendedGrid">
+                <div id='grid'></div>
+            </div>  
+            <div>
+                <h3 id="upNextTitle">Up next:</h3>
+                <div id="upNext"></div>
+            </div>
+            
+        </div>
+    </div>
+
+    <script src='app.js' charset="utf-8"></script>
+  </body>
+</html>

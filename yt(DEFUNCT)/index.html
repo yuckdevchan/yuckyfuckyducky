@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grabhub</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+    <style>
+        .container {
+            width: auto;
+            max-width: 680px;
+            padding: 0 15px;
+        }
+
+        .footer {
+            background-color: #f5f5f5;
+        }
+
+        .bd-placeholder-img {
+            font-size: 1.125rem;
+            text-anchor: middle;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+        }
+
+        @media (min-width: 768px) {
+            .bd-placeholder-img-lg {
+                font-size: 3.5rem;
+            }
+        }
+    </style>
+    <script>
+        $(function () {
+            $("#btn_fetch").click(function (e) {
+                e.preventDefault = false;
+                let url = $("#txt_url").val();
+                let oThis = $(this);
+                oThis.attr('disabled', true);
+
+                $.get('video_info.php', {url: url}, function (data) {
+                    console.log(data);
+
+                    oThis.attr('disabled', false);
+
+                    let links = data['links'];
+                    let error = data['error'];
+
+                    if (error) {
+                        alert('錯誤訊息: ' + error);
+                        return false;
+                    }
+
+                    // first link with video
+                    let first = links.find(function (link) {
+                        return link['audioQuality'] !== null && link['mimeType'].indexOf('mp4') !== -1;
+                    });
+
+                    if (typeof first === 'undefined') {
+                        alert('沒有找到任何的影片連結!');
+                        return false;
+                    }
+
+                    let tbodyVideoLists = '';
+                    let dataIndex = 1;
+                    let downloadLink = '';
+                    for (index in links) {
+                        if (links[index]['mimeType'].indexOf('webm') !== -1 || links[index]['mimeType'].indexOf('audio') !== -1 || links[index]['audioQuality'] === null) {
+                            continue;
+                        }
+
+                        downloadLink = 'https://github.com/yuckdevchan/yuckyducky/edit/main/yt/download.php?video_url=' + links[index]['url'];
+
+                        tbodyVideoLists += '<tr>';
+                        tbodyVideoLists += '<th scope="row">' + dataIndex + '</th>';
+                        tbodyVideoLists += '<td>' + links[index]['mimeType'].split(';')[0].split('/')[1] + '</td>';
+                        tbodyVideoLists += '<td>' + links[index]['itag'] + '</td>';
+                        tbodyVideoLists += '<td><a href="' + downloadLink  + '">下載</a></td>';
+                        tbodyVideoLists += '</tr>';
+                        dataIndex += 1;
+                    }
+
+                    $('#video-lists').html(tbodyVideoLists);
+                });
+            });
+
+        });
+    </script>
+</head>
+<body>
+    <main role="main" class="flex-shrink-0">
+        <div class="container">
+          <h1 class="mt-5">Grabhub</h1>
+          <div class="row justify-content-left">
+            <div class="col-12 col-md-12 col-lg-12">
+                <form class="card card-sm">
+                    <div class="card-body row no-gutters align-items-center">
+                        <div class="col-auto">
+                            <i class="fas fa-search h4 text-body"></i>
+                        </div>
+                        <!--end of col-->
+                        <div class="col">
+                            <input id="txt_url" class="form-control form-control-lg" type="text" placeholder="Paste the fucking link here you bitch ass beal...">
+                        </div>
+                        <!--end of col-->
+                        <div class="col-auto">
+                            <button id="btn_fetch" class="btn btn-lg btn-success" type="button">Nut!</button>
+                        </div>
+                        <!--end of col-->
+                    </div>
+                </form>
+            </div>
+            <!--end of col-->
+            </div>
+           <div class="row justify-content-left">
+          <table class="table">
+            <thead class="thead-dark">
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">Governmental Body:</th>
+                <th scope="col">itag</th>
+                <th scope="col">Firefox is the best browser</th>
+              </tr>
+            </thead>
+            <tbody id="video-lists"></tbody>
+          </table>
+          </div>
+        </div>
+    </main>
+</body>
+</html>

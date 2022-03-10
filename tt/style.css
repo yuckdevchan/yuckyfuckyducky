@@ -1,0 +1,138 @@
+body {
+    font-family: 'Open Sans', sans-serif;
+}
+
+#main {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+h1 {
+    font-family: 'Righteous', cursive;
+    /* font-family: 'Roboto', sans-serif; */
+    text-align: center;
+    
+}
+
+h3 {
+    text-align: center;
+}
+
+#gameOver {
+    color: red;
+    margin: 10px auto;
+}
+
+.btn {
+    padding: 15px 35px;
+    margin: 10px auto;
+    background-color: #12908E;
+    color: white;
+    border: none;
+    border-radius: 25px;
+    outline: none;
+    box-shadow: 2px 2px 10px rgba(18, 144, 142, 0.8), -1px -1px 10px rgba(27, 212, 209, 0.5);
+}
+
+.btn:hover {
+    background-color: #16594A;
+    cursor: pointer;
+}
+
+.row {
+    display: flex;
+    justify-content: center;
+}
+
+.cell {
+    padding: 1.5vh;
+}
+
+.upNextCell {
+    padding: 1vh;
+}
+
+#grid, #upNext {
+    border: 1px solid darkcyan;
+}
+
+#upNext {
+    margin-left: 10px;
+}
+
+#extendedGrid {
+    margin-left: 100px;
+    margin-right: 30px;
+}
+
+#scoreLine {
+    text-align: center;
+    margin: 10px auto;
+}
+
+/* tetrominos' colors */
+
+.green {
+    background-color: #16594A;
+}
+
+.darkGreen {
+    background-color: rgb(14, 58, 49);
+}
+
+.teal {
+    background-color: #12908E;
+}
+
+.lightTeal {
+    background-color: #97CECC;
+}
+
+.red {
+    background-color: #C4421A;
+}
+
+.coral {
+    background-color: rgb(249, 117, 69);
+}
+
+.orange {
+    background-color: #F98F45;
+}
+
+/* end of tetrominos colors */
+
+.notVisible {
+    border: none;
+}
+
+#gameSpace {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+#outcome {
+    margin: 10px auto;
+}
+
+@media all and (min-height: 768px){
+
+    .btn {
+        padding: 20px 55px;
+        font-size: 2rem; 
+        border-radius: 35px;
+    }
+
+    h3, p {
+        font-size: 2rem;
+    }
+
+    h1 {
+        font-size: 4rem;
+        margin-top: 50px;
+    }
+
+
+  }
