@@ -1,5 +1,5 @@
 # yuck.ga
-==> Remember - yuck.ga is Free & Open-Source software - respect it
+==> Remember - yuck.ga is Free & Open-Source software. <==
 
 This is a repo for a website. feel free to use it for any use - the code and other stuff is all licensed permissively under the BSD 3 Clause License.
 
