@@ -21,4 +21,6 @@ yuck.ga is designed to let you do what you want because everyone deserves freedo
 - 2D Minecraft Clone
 - Proxyninja (do NOT use this for unethical / illegal reasons - only use these to take advantage of the amazing protocols of magnets and torrents to download things in the public domain and software that is open source. Torrents are an amazing piece of technology that can really make your life faster but unfortunatley has earned itself negative connations.)
 
-The password is to this site is: chukwudi
+The primary password to this site is: chukwudi (light mode)
+The secondary password to this site is: obese (dark mode)
+The tertiary password to the site is: rick (b9ab5d34593724ab32ad0f7d13d88750b7414e7b is the hash)
